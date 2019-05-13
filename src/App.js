@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Router } from "@reach/router";
+import NavBar from "./components/layerOne/navBar";
+import HomePage from "./components/layerTwo/displayAllArticles/homepage";
+import DisplayArticleById from "./components/layerTwo/individualArticles/displayArticleByIdPage";
+import DisplayArticlesByTopicPage from "./components/layerTwo/articlesByTopic/displayArticlesByTopicPage";
+import CommentsPage from "./components/layerThree/extrasForTile/comments/displayCommentsByArticleIdPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <NavBar className="navigate" />
+        {
+          <Router>
+            <HomePage path="/" />
+            <CommentsPage path="/articles/:id/comment" />
+            <DisplayArticleById path="/articles/:id" />
+            <DisplayArticlesByTopicPage path="/articles/topic/:topic" />
+          </Router>
+        }
+      </div>
+    );
+  }
 }
 
 export default App;
