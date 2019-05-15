@@ -3,7 +3,6 @@
 }
 
 .hoverWrapper #hoverShow1 {
-  display: none;
   position: absolute;
   background-color: plum;
   width: 250px;
@@ -14,7 +13,7 @@
 
 .App {
   background-color: pink;
-  text-align: center;
+  text-align: justify;
 }
 
 /* Dropdown Button */

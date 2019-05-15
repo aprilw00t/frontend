@@ -1,7 +1,12 @@
 import React from "react";
 import CommentButton from "../../layerThree/extrasForTile/comments/commentButton";
 import AddACommentButton from "../addACommentButton";
-function DisplayArticleByIdFunction({ article: { article }, addacomment }) {
+import VoteButton from "../voteButton";
+function DisplayArticleByIdFunction({
+  article: { article },
+  addacomment,
+  vote
+}) {
   return (
     <ul>
       {
@@ -15,6 +20,7 @@ function DisplayArticleByIdFunction({ article: { article }, addacomment }) {
             <h5>{article.votes}</h5>
             <h5>{article.body}</h5>
             <h5>{article.created_at}</h5>
+            <VoteButton vote={vote} />
             <CommentButton link={article.article_id} />
             <AddACommentButton addacomment={addacomment} />
           </div>

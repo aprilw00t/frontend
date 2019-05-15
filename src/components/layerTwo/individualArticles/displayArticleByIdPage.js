@@ -12,6 +12,7 @@ class DisplayArticleById extends React.Component {
           <DisplayArticleByIdFunction
             article={this.state.specificArticle}
             addacomment={e => this.addsacomment(e)}
+            vote={this.vote}
           />
         )}
       </div>
@@ -27,17 +28,25 @@ class DisplayArticleById extends React.Component {
   }
   addsacomment(e) {
     e.preventDefault();
-    console.log(this.state);
-    //   axios
-    //     .post(`/api/articles/${id}/comments`, {
-    //       username: "Fred",
-    //       body: "Flitstone"
-    //     })
-    //     .then(() => {
-    //       // handle success
-    //       console.log("posted");
-    //     })
-    //     .catch(error => console.log(error));
+    console.log(this.state.specificArticle.article.article_id);
+    axios
+      .post(
+        `https://n-c-news-api.herokuapp.com/api/articles/${
+          this.state.specificArticle.article.article_id
+        }/comments`,
+        {
+          username: "tickle122",
+          body: `${e.target.comment.value}`
+        }
+      )
+      .then(() => {
+        // handle success
+        console.log("posted");
+      })
+      .catch(error => console.log(error));
+  }
+  vote(e) {
+    console.log("vote");
   }
 }
 // componentDidUpdate(prevProps) {
