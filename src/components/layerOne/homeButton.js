@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 function Home() {
   return (
     <Link to={"/"}>
-      <div> Home </div>{" "}
+      <div id="myDropdown"> Home </div>{" "}
     </Link>
   );
 }

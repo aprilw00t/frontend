@@ -1,6 +1,5 @@
 import React from "react";
 function CommentTile({ comment }) {
-  console.log(comment);
   return (
     <div>
       <h3>{comment.comment_id}</h3>

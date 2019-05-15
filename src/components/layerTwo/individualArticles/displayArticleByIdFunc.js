@@ -1,6 +1,7 @@
 import React from "react";
 import CommentButton from "../../layerThree/extrasForTile/comments/commentButton";
-function DisplayArticleByIdFunction({ article: { article } }) {
+import AddACommentButton from "../addACommentButton";
+function DisplayArticleByIdFunction({ article: { article }, addacomment }) {
   return (
     <ul>
       {
@@ -15,6 +16,7 @@ function DisplayArticleByIdFunction({ article: { article } }) {
             <h5>{article.body}</h5>
             <h5>{article.created_at}</h5>
             <CommentButton link={article.article_id} />
+            <AddACommentButton addacomment={addacomment} />
           </div>
           }
         </li>

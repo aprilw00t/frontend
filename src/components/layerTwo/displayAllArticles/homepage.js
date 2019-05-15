@@ -42,7 +42,7 @@ class HomePage extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     // Typical usage (don't forget to compare props):
-    if (this.state !== prevState) {
+    if (this.state.sortBy !== prevState.sortBy) {
       axios
         .get(
           `https://n-c-news-api.herokuapp.com/api/articles?sort_by=${

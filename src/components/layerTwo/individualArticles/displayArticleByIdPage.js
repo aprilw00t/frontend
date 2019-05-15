@@ -9,7 +9,10 @@ class DisplayArticleById extends React.Component {
       <div>
         article by id
         {this.state.specificArticle && (
-          <DisplayArticleByIdFunction article={this.state.specificArticle} />
+          <DisplayArticleByIdFunction
+            article={this.state.specificArticle}
+            addacomment={e => this.addsacomment(e)}
+          />
         )}
       </div>
     );
@@ -22,8 +25,21 @@ class DisplayArticleById extends React.Component {
       })
       .catch(error => console.log(error));
   }
+  addsacomment(e) {
+    e.preventDefault();
+    console.log(this.state);
+    //   axios
+    //     .post(`/api/articles/${id}/comments`, {
+    //       username: "Fred",
+    //       body: "Flitstone"
+    //     })
+    //     .then(() => {
+    //       // handle success
+    //       console.log("posted");
+    //     })
+    //     .catch(error => console.log(error));
+  }
 }
-
 // componentDidUpdate(prevProps) {
 //     // Typical usage (don't forget to compare props):
 //     if (this.props.userID !== prevProps.userID) {

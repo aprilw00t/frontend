@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import DisplayComments from "./displayComments";
+//import AddACommentButton from "../../../layerTwo/addACommentButton";
 class CommentsPage extends React.Component {
   state = { CommentList: null };
 
@@ -8,7 +9,9 @@ class CommentsPage extends React.Component {
     return (
       <div>
         {this.state.CommentList && (
-          <DisplayComments comments={this.state.CommentList} />
+          <div>
+            <DisplayComments comments={this.state.CommentList} />
+          </div>
         )}
         comments rendered
       </div>

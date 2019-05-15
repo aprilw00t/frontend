@@ -9,16 +9,26 @@ import CommentsPage from "./components/layerThree/extrasForTile/comments/display
 import "./App.css";
 
 class App extends Component {
+  state = { loggedIn: "no" };
   render() {
     return (
       <div className="App">
         <NavBar className="navigate" />
         {
           <Router>
-            <HomePage path="/" />
-            <CommentsPage path="/articles/:id/comment" />
-            <DisplayArticleById path="/articles/:id" />
-            <DisplayArticlesByTopicPage path="/articles/topic/:topic" />
+            <HomePage path="/" loggedIn={this.state.loggedIn} />
+            <CommentsPage
+              path="/articles/:id/comment"
+              loggedIn={this.state.loggedIn}
+            />
+            <DisplayArticleById
+              path="/articles/:id"
+              loggedIn={this.state.loggedIn}
+            />
+            <DisplayArticlesByTopicPage
+              path="/articles/topic/:topic"
+              loggedIn={this.state.loggedIn}
+            />
           </Router>
         }
       </div>
