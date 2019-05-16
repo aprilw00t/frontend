@@ -1,10 +1,9 @@
 import React from "react";
-import Filter from "./filter";
 import Home from "./homeButton";
 import Topics from "./topicDropDown";
 import Login from "./login";
 
-function NavBar() {
+function NavBar({ loginhandler, saveusername }) {
   return (
     <div>
       <ul class="navlist">
@@ -13,17 +12,17 @@ function NavBar() {
         </li>
         <li class="navlist">
           {" "}
-          <Filter />
-        </li>
-        <li class="navlist">
-          {" "}
           <Topics />
         </li>
 
         <li class="navlist">
-          <Login />
+          <Login loginhandler={loginhandler} saveusername={saveusername} />
         </li>
       </ul>
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

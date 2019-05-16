@@ -13,7 +13,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar className="navigate" />
+        <NavBar
+          loginhandler={e => {
+            this.loginhandler(e);
+          }}
+          saveusername={e => {
+            this.saveusername(e);
+          }}
+          username={this.state.loggedin}
+        />
         {
           <Router>
             <HomePage path="/" loggedIn={this.state.loggedIn} />
@@ -33,6 +41,17 @@ class App extends Component {
         }
       </div>
     );
+  }
+  saveusername(e) {
+    this.setState({ loggedIn: e.target.value });
+  }
+  loginhandler(e) {
+    e.preventDefault();
+    if (this.state.loggedIn === "jessjelly") {
+      alert("logged in");
+    } else {
+      alert("incorrect login");
+    }
   }
 }
 

@@ -12,19 +12,16 @@ function Topics() {
     //   );
     // }
 
-    <div class="dropdown">
-      <button class="dropbtn">Topics</button>
-      <div id="myDropdown" class="dropdown-content">
-        <a href="/articles/topic/football" value="footy">
-          Football
-        </a>
-        <a href="/articles/topic/coding" value="Coding">
-          Coding
-        </a>
-        <a href="/articles/topic/cooking" value="Cooking">
-          Cooking
-        </a>
-      </div>
+    <div>
+      <a href="/articles/topic/football" value="footy">
+        Football
+      </a>
+      <a href="/articles/topic/coding" value="Coding">
+        Coding
+      </a>
+      <a href="/articles/topic/cooking" value="Cooking">
+        Cooking
+      </a>
     </div>
   );
   // <div class="dropdown">

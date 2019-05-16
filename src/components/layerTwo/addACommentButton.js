@@ -14,7 +14,18 @@ function myFunction(addacomment) {
 function AddACommentButton({ addacomment }) {
   return (
     <div>
-      <button onClick={e => myFunction(addacomment)}> add a comment </button>
+      <form onSubmit={addacomment}>
+        <label>
+          <b>comment</b>
+        </label>
+        <input
+          type="text"
+          placeholder="Enter comment"
+          name="comment"
+          required
+        />
+        <button onClick={e => myFunction(addacomment)}> add a comment </button>
+      </form>
     </div>
   );
 }

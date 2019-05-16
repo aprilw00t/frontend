@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import DisplayArticleByIdFunction from "./displayArticleByIdFunc";
 class DisplayArticleById extends React.Component {
-  state = { specificArticle: null };
+  state = { specificArticle: null, loggedIn: "no" };
 
   render() {
     return (
@@ -46,7 +46,7 @@ class DisplayArticleById extends React.Component {
       .catch(error => console.log(error));
   }
   vote(e) {
-    console.log("vote");
+    console.log("voted");
   }
 }
 // componentDidUpdate(prevProps) {
