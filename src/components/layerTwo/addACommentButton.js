@@ -7,7 +7,7 @@ function myFunction(addacomment) {
   console.log(addacomment);
   return (
     <div>
-      1) <CommentPage addacomment={addacomment} />{" "}
+      <CommentPage addacomment={addacomment} />{" "}
     </div>
   );
 }

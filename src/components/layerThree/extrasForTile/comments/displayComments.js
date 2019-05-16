@@ -1,14 +1,18 @@
 import React from "react";
 import CommentTile from "./commentTile";
-function DisplayComments({ comments }) {
-  console.log(comments);
+function DisplayComments({ comments, loggedIn, deletecomment }) {
+  console.log(loggedIn);
   return (
     //comment tile goes here
     <ul>
       {comments.map(comment => {
         return (
           <li key={comment.comment_id}>
-            <CommentTile comment={comment} />
+            <CommentTile
+              comment={comment}
+              loggedIn={loggedIn}
+              deletecomment={deletecomment}
+            />
           </li>
         );
       })}

@@ -1,7 +1,7 @@
 import React from "react";
 //import { Link } from "@reach/router";
 
-function Topics() {
+function Topics({ loggedIn }) {
   return (
     //   return (
     //     <select>

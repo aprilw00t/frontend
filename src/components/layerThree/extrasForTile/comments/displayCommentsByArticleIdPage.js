@@ -3,14 +3,19 @@ import axios from "axios";
 import DisplayComments from "./displayComments";
 //import AddACommentButton from "../../../layerTwo/addACommentButton";
 class CommentsPage extends React.Component {
-  state = { CommentList: null };
+  state = { CommentList: null, loggedIn: this.props.loggedIn };
 
   render() {
+    console.log(this.props);
     return (
       <div>
         {this.state.CommentList && (
           <div>
-            <DisplayComments comments={this.state.CommentList} />
+            <DisplayComments
+              comments={this.state.CommentList}
+              deletecomment={this.deletecomment}
+              loggedIn={this.state.loggedIn}
+            />
           </div>
         )}
         comments rendered
@@ -24,6 +29,19 @@ class CommentsPage extends React.Component {
       .get(
         `https://n-c-news-api.herokuapp.com/api/articles/${
           this.props.id
+        }/comments`
+      )
+      .then(({ data }) => {
+        this.setState({ CommentList: data.comments });
+      })
+      .catch(error => console.log(error));
+  }
+  deletecomment(e) {
+    e.preventDefault();
+    axios
+      .delete(
+        `https://n-c-news-api.herokuapp.com/api/comments/${
+          this.state.comment_id
         }/comments`
       )
       .then(({ data }) => {
