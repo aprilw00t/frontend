@@ -3,7 +3,7 @@ import Home from "./homeButton";
 import Topics from "./topicDropDown";
 import Login from "./login";
 import Sort from "../layerTwo/./displayAllArticles/sort_by";
-
+import "../../App.css";
 function NavBar({
   loginhandler,
   articleSort,

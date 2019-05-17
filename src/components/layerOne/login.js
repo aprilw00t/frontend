@@ -7,7 +7,10 @@ function Login({ loginhandler, saveusername, buttonChange }) {
   return (
     <div>
       <form />
-      <button onClick={loginhandler}> {buttonChange} </button>
+      <button class="form" onClick={loginhandler}>
+        {" "}
+        {buttonChange}{" "}
+      </button>
       <input
         type="text"
         placeholder="use jessjelly"

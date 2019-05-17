@@ -1,7 +1,6 @@
 import React from "react";
 import DeleteComment from "./deleteYourCommentButton";
 function CommentTile({ comment, loggedIn, deletecomment }) {
-  console.log(loggedIn);
   if (loggedIn === comment.author) {
     return (
       <div>

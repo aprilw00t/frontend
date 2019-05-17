@@ -6,10 +6,12 @@ import CommentsPage from "../../layerThree/extrasForTile/comments/displayComment
 class DisplayArticleById extends React.Component {
   state = {
     specificArticle: null,
-    votes: null
+    votes: null,
+    newComment: null
   };
 
   render() {
+    console.log(this.props.loggedIn);
     return (
       <div class="marginboxes">
         {this.state.specificArticle && (
@@ -21,7 +23,11 @@ class DisplayArticleById extends React.Component {
             votes={this.state.votes}
           />
         )}
-        <CommentsPage class="bigmargin" id={this.props.id} />
+        <CommentsPage
+          id={this.props.id}
+          loggedIn={this.props.loggedIn}
+          newComment={this.state.newComment}
+        />
       </div>
     );
   }
@@ -37,6 +43,7 @@ class DisplayArticleById extends React.Component {
       .catch(error => console.log(error));
   }
   addsacomment(e) {
+    let comment = e.target.comment.value;
     e.preventDefault();
     console.log(this.state.specificArticle.article.article_id);
     axios
@@ -45,12 +52,21 @@ class DisplayArticleById extends React.Component {
           this.state.specificArticle.article.article_id
         }/comments`,
         {
-          username: "jessjelly", //this.props.whatever
+          username: `${this.props.loggedIn}`, //this.props.whatever
           body: `${e.target.comment.value}`
         }
       )
       .then(() => {
-        // handle success
+        this.setState({
+          newComment: [
+            {
+              title: comment,
+              author: `${this.props.loggedIn}`,
+              created_at: "just now",
+              votes: 0
+            }
+          ]
+        });
         alert("posted");
       })
       .catch(error => console.log(error));

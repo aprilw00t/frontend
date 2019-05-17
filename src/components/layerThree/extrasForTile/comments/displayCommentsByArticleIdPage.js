@@ -1,24 +1,23 @@
 import React from "react";
 import axios from "axios";
 import DisplayComments from "./displayComments";
-//import AddACommentButton from "../../../layerTwo/addACommentButton";
 class CommentsPage extends React.Component {
-  state = { CommentList: null, loggedIn: this.props.loggedIn };
+  state = { CommentList: null };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.state.CommentList && (
           <div>
+            <h3>comments</h3>
             <DisplayComments
               comments={this.state.CommentList}
               deletecomment={e => this.deletecomment(e)}
-              loggedIn={this.state.loggedIn}
+              loggedIn={this.props.loggedIn}
+              newComment={this.props.newComment}
             />
           </div>
         )}
-        comments rendered
       </div>
     );
   }
@@ -35,39 +34,14 @@ class CommentsPage extends React.Component {
       })
       .catch(error => console.log(error));
   }
-  componentDidUpdate(prevProps, prevState) {
-    // Typical usage (don't forget to compare props):
-    if (this.state.commentList !== prevState.commentList) {
-      console.log("uisfdhfi");
-      axios
-        .get(
-          `https://n-c-news-api.herokuapp.com/api/articles/${
-            this.props.id
-          }/comments`
-        )
-        .then(({ data }) => {
-          this.setState({ ArticleList: data.articles });
-        })
-        .catch(error => console.log(error));
-    }
-    if (this.props !== prevProps) {
-      axios
-        .get(
-          `https://n-c-news-api.herokuapp.com/api/articles/${
-            this.props.id
-          }/comments`
-        )
-        .then(({ data }) => {
-          this.setState({ ArticleList: data.articles });
-        })
-        .catch(error => console.log(error));
-    }
-  }
 
   deletecomment(commentid) {
     console.log(commentid);
     axios
       .delete(`https://n-c-news-api.herokuapp.com/api/comments/${commentid}/`)
+      .then(() => {
+        console.log(this.state.CommentList);
+      })
       .catch(error => console.log(error));
     alert("deleted");
   }
