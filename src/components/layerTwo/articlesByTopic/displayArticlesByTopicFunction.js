@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../App.css";
 import { Link } from "@reach/router";
 import ArticleTile from "../../layerThree/articleTile"; //./layerThree/extrasForTile/articleTile;
 import CommentButton from "../../layerThree/extrasForTile/comments/commentButton";
@@ -13,9 +14,6 @@ function DisplayArticleByTopicFunction({ articles: { articles } }) {
               <ArticleTile article={article} />
             </Link>
             <CommentButton link={article.article_id} />
-
-            <br />
-            <br />
           </li>
         );
       })}

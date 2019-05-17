@@ -3,14 +3,14 @@ import React from "react";
 import "../../.././src/App.css";
 //import { Link } from "@reach/router";
 
-function Login({ loginhandler, saveusername }) {
+function Login({ loginhandler, saveusername, buttonChange }) {
   return (
     <div>
       <form />
-      <button onClick={loginhandler}> login </button>
+      <button onClick={loginhandler}> {buttonChange} </button>
       <input
         type="text"
-        placeholder="username"
+        placeholder="use jessjelly"
         name="username"
         required
         onChange={saveusername}

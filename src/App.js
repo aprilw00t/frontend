@@ -9,11 +9,13 @@ import CommentsPage from "./components/layerThree/extrasForTile/comments/display
 import "./App.css";
 
 class App extends Component {
-  state = { loggedIn: "no" };
+  state = { loggedIn: "no", sortBy: "created_at", buttonChange: "login" };
   render() {
     return (
       <div className="App">
         <NavBar
+          class="navlist"
+          articleSort={this.sortState}
           loginhandler={e => {
             this.loginhandler(e);
           }}
@@ -21,19 +23,29 @@ class App extends Component {
             this.saveusername(e);
           }}
           username={this.state.loggedin}
+          buttonChange={this.state.buttonChange}
         />
         {
           <Router>
-            <HomePage path="/" loggedIn={this.state.loggedIn} />
+            <HomePage
+              class="marginboxes"
+              path="/"
+              sortBy={this.state.sortBy}
+              loggedIn={this.state.loggedIn}
+            />
             <CommentsPage
+              class="marginboxes"
               path="/articles/:id/comment"
               loggedIn={this.state.loggedIn}
             />
             <DisplayArticleById
+              class="marginboxes"
               path="/articles/:id"
               loggedIn={this.state.loggedIn}
             />
             <DisplayArticlesByTopicPage
+              class="marginboxes"
+              sortBy={this.state.sortBy}
               path="/articles/topic/:topic"
               loggedIn={this.state.loggedIn}
             />
@@ -46,13 +58,21 @@ class App extends Component {
     this.setState({ loggedIn: e.target.value });
   }
   loginhandler(e) {
-    e.preventDefault();
-    if (this.state.loggedIn === "jessjelly") {
-      alert("logged in");
+    if (this.state.buttonChange === "login") {
+      e.preventDefault();
+      if (this.state.loggedIn === "jessjelly") {
+        this.setState({ buttonChange: "log out" });
+        alert("logged in");
+      } else {
+        alert("incorrect login");
+      }
     } else {
-      alert("incorrect login");
+      this.setState({ loggedIn: "no", buttonChange: "login" });
     }
   }
+  sortState = click => {
+    this.setState({ sortBy: click });
+  };
 }
 
 export default App;

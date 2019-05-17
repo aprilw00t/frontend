@@ -11,7 +11,7 @@ function myFunction(addacomment) {
     </div>
   );
 }
-function AddACommentButton({ addacomment }) {
+function AddACommentButton({ addacomment, loggedIn }) {
   return (
     <div>
       <form onSubmit={addacomment}>

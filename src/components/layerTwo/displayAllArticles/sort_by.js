@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../App.css";
 function Sort({ articleSort }) {
   return (
     <select
@@ -6,7 +7,7 @@ function Sort({ articleSort }) {
         articleSort(e.target.value);
       }}
     >
-      <option value="created_at">time created (default)</option>
+      <option value="created_at">time created</option>
       <option value="votes">votes</option>
       <option value="title">title</option>
     </select>

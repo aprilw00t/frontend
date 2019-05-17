@@ -13,7 +13,7 @@ class CommentsPage extends React.Component {
           <div>
             <DisplayComments
               comments={this.state.CommentList}
-              deletecomment={this.deletecomment}
+              deletecomment={e => this.deletecomment(e)}
               loggedIn={this.state.loggedIn}
             />
           </div>
@@ -24,7 +24,6 @@ class CommentsPage extends React.Component {
   }
   //change this get request to one from my hosted HEROKU app
   componentDidMount() {
-    console.log(this.props);
     axios
       .get(
         `https://n-c-news-api.herokuapp.com/api/articles/${
@@ -36,18 +35,41 @@ class CommentsPage extends React.Component {
       })
       .catch(error => console.log(error));
   }
-  deletecomment(e) {
-    e.preventDefault();
+  componentDidUpdate(prevProps, prevState) {
+    // Typical usage (don't forget to compare props):
+    if (this.state.commentList !== prevState.commentList) {
+      console.log("uisfdhfi");
+      axios
+        .get(
+          `https://n-c-news-api.herokuapp.com/api/articles/${
+            this.props.id
+          }/comments`
+        )
+        .then(({ data }) => {
+          this.setState({ ArticleList: data.articles });
+        })
+        .catch(error => console.log(error));
+    }
+    if (this.props !== prevProps) {
+      axios
+        .get(
+          `https://n-c-news-api.herokuapp.com/api/articles/${
+            this.props.id
+          }/comments`
+        )
+        .then(({ data }) => {
+          this.setState({ ArticleList: data.articles });
+        })
+        .catch(error => console.log(error));
+    }
+  }
+
+  deletecomment(commentid) {
+    console.log(commentid);
     axios
-      .delete(
-        `https://n-c-news-api.herokuapp.com/api/comments/${
-          this.state.comment_id
-        }/comments`
-      )
-      .then(({ data }) => {
-        this.setState({ CommentList: data.comments });
-      })
+      .delete(`https://n-c-news-api.herokuapp.com/api/comments/${commentid}/`)
       .catch(error => console.log(error));
+    alert("deleted");
   }
 }
 // componentDidUpdate(prevProps) {

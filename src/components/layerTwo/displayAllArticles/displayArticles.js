@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import ArticleTile from "../../layerThree/articleTile";
 import CommentButton from "../../layerThree/extrasForTile/comments/commentButton";
-
+import "../../../App.css";
 function DisplayArticles({ articles }) {
   return (
     <ul>

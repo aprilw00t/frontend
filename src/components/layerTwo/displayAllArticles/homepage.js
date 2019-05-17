@@ -1,17 +1,17 @@
 import React from "react";
 import axios from "axios";
+import "../../../App.css";
 import DisplayArticles from "./displayArticles";
-import Sort from "./sort_by";
+//import Sort from "./sort_by";
 
 class HomePage extends React.Component {
-  state = { ArticleList: null, sortBy: "created_at" };
+  state = { ArticleList: null };
 
   render() {
     return (
       <div>
         {this.state.ArticleList && (
-          <div>
-            <Sort articleSort={this.sortState} />
+          <div class="marginboxes">
             <br />
             <br />
             <DisplayArticles articles={this.state.ArticleList} />
@@ -27,11 +27,11 @@ class HomePage extends React.Component {
 
   //change this get request to one from my hosted HEROKU app
   componentDidMount() {
-    console.log(this.props);
+    console.log(this.props.sortBy);
     axios
       .get(
         `https://n-c-news-api.herokuapp.com/api/articles?sort_by=${
-          this.state.sortBy
+          this.props.sortBy
         }`
       )
       .then(({ data }) => {
@@ -46,7 +46,7 @@ class HomePage extends React.Component {
       axios
         .get(
           `https://n-c-news-api.herokuapp.com/api/articles?sort_by=${
-            this.state.sortBy
+            this.props.sortBy
           }`
         )
         .then(({ data }) => {
@@ -58,7 +58,7 @@ class HomePage extends React.Component {
       axios
         .get(
           `https://n-c-news-api.herokuapp.com/api/articles?sort_by=${
-            this.state.sortBy
+            this.props.sortBy
           }`
         )
         .then(({ data }) => {

@@ -1,17 +1,16 @@
 import React from "react";
+import "../../../App.css";
 import axios from "axios";
 import DisplayArticleByTopicFunction from "./displayArticlesByTopicFunction";
-import Sort from "../../layerTwo/displayAllArticles/sort_by";
+//import Sort from "../../layerTwo/displayAllArticles/sort_by";
 class DisplayArticlesByTopic extends React.Component {
-  state = { ArticlesByTopic: null, sortBy: "created_at" };
+  state = { ArticlesByTopic: null };
 
   render() {
     return (
-      <div>
-        article by topic
+      <div class="marginboxes">
         {this.state.ArticlesByTopic && (
           <div>
-            <Sort articleSort={this.sortState} />
             <DisplayArticleByTopicFunction
               articles={this.state.ArticlesByTopic}
             />
@@ -20,15 +19,13 @@ class DisplayArticlesByTopic extends React.Component {
       </div>
     );
   }
-  sortState = click => {
-    this.setState({ sortBy: click });
-  };
+
   componentDidMount() {
     axios
       .get(
         `https://n-c-news-api.herokuapp.com/api/articles?topic=${
           this.props.topic
-        }&sort_by=${this.state.sortBy}`
+        }&sort_by=${this.props.sortBy}`
       )
       .then(({ data }) => {
         this.setState({ ArticlesByTopic: data });
@@ -39,12 +36,11 @@ class DisplayArticlesByTopic extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     // Typical usage (don't forget to compare props):
     if (this.state.sortBy !== prevState.sortBy) {
-      console.log("uisfdhfi");
       axios
         .get(
           `https://n-c-news-api.herokuapp.com/api/articles?topic=${
             this.props.topic
-          }&sort_by=${this.state.sortBy}`
+          }&sort_by=${this.props.sortBy}`
         )
         .then(({ data }) => {
           this.setState({ ArticleList: data.articles });
@@ -56,7 +52,7 @@ class DisplayArticlesByTopic extends React.Component {
         .get(
           `https://n-c-news-api.herokuapp.com/api/articles?topic=${
             this.props.topic
-          }&sort_by=${this.state.sortBy}`
+          }&sort_by=${this.props.sortBy}`
         )
         .then(({ data }) => {
           this.setState({ ArticleList: data.articles });
