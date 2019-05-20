@@ -36,11 +36,13 @@ class CommentsPage extends React.Component {
   }
 
   deletecomment(commentid) {
-    console.log(commentid);
     axios
       .delete(`https://n-c-news-api.herokuapp.com/api/comments/${commentid}/`)
       .then(() => {
-        console.log(this.state.CommentList);
+        const deletThis = this.state.CommentList.filter(comment => {
+          return comment.comment_id !== commentid;
+        });
+        this.setState({ CommentList: deletThis });
       })
       .catch(error => console.log(error));
     alert("deleted");

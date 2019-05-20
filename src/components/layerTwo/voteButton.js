@@ -4,14 +4,14 @@ import React from "react";
 import "../../App.css";
 function VoteButton({ vote }) {
   return (
-    <div>
+    <div class="topics">
       <button value="1" onClick={vote}>
         {" "}
-        up{" "}
-      </button>
+        yass |{" "}
+      </button>{" "}
       <button value="-1" onClick={vote}>
         {" "}
-        down{" "}
+        | no{" "}
       </button>
     </div>
   );

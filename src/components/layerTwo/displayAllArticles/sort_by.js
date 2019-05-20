@@ -7,7 +7,7 @@ function Sort({ articleSort }) {
         articleSort(e.target.value);
       }}
     >
-      <option value="created_at">time created</option>
+      <option value="created_at">sort</option>
       <option value="votes">votes</option>
       <option value="title">title</option>
     </select>

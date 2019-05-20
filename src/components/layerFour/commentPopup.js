@@ -1,10 +1,10 @@
 import React from "react";
+//import VoteButton from "../layerTwo/voteButton";
 function CommentPage({ addacomment }) {
-  console.log(addacomment);
   return (
     <form onSubmit={addacomment}>
       <label>
-        <b>comment</b>
+        <b>comment </b>
       </label>
       <input type="text" placeholder="Enter comment" name="comment" required />
       <button type="submit">submit</button>

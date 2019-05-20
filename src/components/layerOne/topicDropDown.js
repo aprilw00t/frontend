@@ -13,13 +13,13 @@ function Topics({ loggedIn }) {
     // }
 
     <div>
-      <a href="/articles/topic/football" value="footy">
+      <a class="links" href="/articles/topic/football" value="footy">
         Football
       </a>
-      <a href="/articles/topic/coding" value="Coding">
+      <a class="links" href="/articles/topic/coding" value="Coding">
         Coding
       </a>
-      <a href="/articles/topic/cooking" value="Cooking">
+      <a class="links" href="/articles/topic/cooking" value="Cooking">
         Cooking
       </a>
     </div>

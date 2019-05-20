@@ -6,20 +6,35 @@ import "../../.././src/App.css";
 function Login({ loginhandler, saveusername, buttonChange }) {
   return (
     <div>
-      <form />
-      <button class="form" onClick={loginhandler}>
-        {" "}
-        {buttonChange}{" "}
-      </button>
-      <input
-        type="text"
-        placeholder="use jessjelly"
-        name="username"
-        required
-        onChange={saveusername}
-      />
-      <input type="text" placeholder="password" name="password" required />
+      <form class="inline" />
+      <ul>
+        <li class="line">
+          <button class="topics" onClick={loginhandler}>
+            {buttonChange} &thinsp;
+          </button>
+        </li>
+        <li class="line">
+          <input
+            type="text"
+            placeholder="jessjelly"
+            name="username"
+            size="6"
+            required
+            onChange={saveusername}
+          />
+        </li>
 
+        <li class="line">
+          &thinsp;
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            size="6"
+            required
+          />
+        </li>
+      </ul>
       <form />
     </div>
   );

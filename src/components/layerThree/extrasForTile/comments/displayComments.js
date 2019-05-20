@@ -1,5 +1,6 @@
 import React from "react";
 import CommentTile from "./commentTile";
+//import VoteButton from "../../../layerTwo/voteButton";
 function DisplayComments({ comments, loggedIn, deletecomment, newComment }) {
   if (newComment) {
     return (

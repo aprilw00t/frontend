@@ -3,7 +3,6 @@ import "../../../App.css";
 import { Link } from "@reach/router";
 import ArticleTile from "../../layerThree/articleTile"; //./layerThree/extrasForTile/articleTile;
 function DisplayArticleByTopicFunction({ articles: { articles } }) {
-  console.log(articles);
   return (
     <ul>
       {articles.map(article => {

@@ -14,15 +14,15 @@ function NavBar({
   return (
     <div class="topnav">
       <ul class="ul">
-        <li class="navlist">
+        <li class="topics">
           <Home loggedIn={loggedIn} />
         </li>
-        <li class="navlist">
+        <li class="topics">
           {" "}
           <Topics loggedIn={loggedIn} />
         </li>
 
-        <li class="navlist">
+        <li class="topics">
           <Login
             loginhandler={loginhandler}
             saveusername={saveusername}
@@ -33,8 +33,6 @@ function NavBar({
           <Sort articleSort={articleSort} />
         </li>
       </ul>
-      <br />
-      <br />
       <br />
       <br />
     </div>

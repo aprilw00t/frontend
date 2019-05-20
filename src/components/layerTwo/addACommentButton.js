@@ -3,8 +3,6 @@ import CommentPage from "../layerFour/commentPopup";
 import "../../App.css";
 //import { Link } from "@reach/router";
 function myFunction(addacomment) {
-  console.log("clicked");
-  console.log(addacomment);
   return (
     <div>
       <CommentPage addacomment={addacomment} />{" "}
@@ -15,16 +13,17 @@ function AddACommentButton({ addacomment, loggedIn }) {
   return (
     <div>
       <form onSubmit={addacomment}>
-        <label>
-          <b>comment</b>
-        </label>
+        <label />
         <input
           type="text"
           placeholder="Enter comment"
           name="comment"
           required
         />
-        <button onClick={e => myFunction(addacomment)}> add a comment </button>
+        <button onClick={e => myFunction(addacomment)}>
+          {" "}
+          &thinsp;comment&thinsp;{" "}
+        </button>
       </form>
     </div>
   );

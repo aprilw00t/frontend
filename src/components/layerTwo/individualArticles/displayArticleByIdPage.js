@@ -1,4 +1,5 @@
 import React from "react";
+import Err from "../../error/errorPage";
 import axios from "axios";
 import "../../../App.css";
 import DisplayArticleByIdFunction from "./displayArticleByIdFunc";
@@ -7,11 +8,12 @@ class DisplayArticleById extends React.Component {
   state = {
     specificArticle: null,
     votes: null,
-    newComment: null
+    newComment: null,
+    err: null
   };
 
   render() {
-    console.log(this.props.loggedIn);
+    //if (this.state.err) return <Err />;
     return (
       <div class="marginboxes">
         {this.state.specificArticle && (
@@ -52,7 +54,7 @@ class DisplayArticleById extends React.Component {
           this.state.specificArticle.article.article_id
         }/comments`,
         {
-          username: `${this.props.loggedIn}`, //this.props.whatever
+          username: `${this.props.loggedIn.slice(0, -3)}`, //this.props.whatever
           body: `${e.target.comment.value}`
         }
       )
@@ -61,7 +63,7 @@ class DisplayArticleById extends React.Component {
           newComment: [
             {
               title: comment,
-              author: `${this.props.loggedIn}`,
+              author: `${this.props.loggedIn.slice(0, -3)}`,
               created_at: "just now",
               votes: 0
             }

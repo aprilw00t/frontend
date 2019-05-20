@@ -12,8 +12,6 @@ class HomePage extends React.Component {
       <div>
         {this.state.ArticleList && (
           <div class="marginboxes">
-            <br />
-            <br />
             <DisplayArticles articles={this.state.ArticleList} />
           </div>
         )}
@@ -27,7 +25,6 @@ class HomePage extends React.Component {
 
   //change this get request to one from my hosted HEROKU app
   componentDidMount() {
-    console.log(this.props.sortBy);
     axios
       .get(
         `https://n-c-news-api.herokuapp.com/api/articles?sort_by=${

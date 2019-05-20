@@ -11,9 +11,6 @@ function DisplayArticles({ articles }) {
             <Link to={`/articles/${article.article_id}`}>
               {<ArticleTile article={article} />}
             </Link>
-
-            <br />
-            <br />
           </li>
         );
       })}
